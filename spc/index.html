@@ -20,32 +20,33 @@
         <p id="err"></p>
 
         <py-script>
-          from js import document
-          from js import console
+          from js import document, console
           import smtplib
           import os.path
-    
+
           def dosubmit(*args,**kwargs):
-              try:
-                  err = Element('err')
-                  # teamid = Element('teamid').value
-                  msg = Element('output').value
-                  mArgs = msg.strip().split(";")
-                  teamid = int(mArgs[0].strip())
-                  fpath = f"/scores/scr{teamid}.txt"
-    
-                  # Check if scoreboard file exists
-                  if not os.path.exists(fpath):
-                    console.log(f"No scoreboard file found for team {teamid}, creating...")
-                  with open(fpath, 'w') as f:
-                    f.write('Create a new text file!')
-    
-                  
-                  document.querySelector("#err").style.color = "black"
-                  err.write("Submission successful!")
-              except Exception:
-                  document.querySelector("#err").style.color = "red"
-                  err.write("Error: unable to submit!")
+            try:
+                err = Element('err')
+                # teamid = Element('teamid').value
+                msg = Element('output').value
+                mArgs = msg.strip().split(";")
+                teamid = int(mArgs[0].strip())
+                fpath = f"/scores/scr{teamid}.txt"
+  
+                # Check if scoreboard file exists
+                if not os.path.exists(fpath):
+                  console.log(f"No scoreboard file found for team {teamid}, creating...")
+                else:  # Update only newly true results
+                  pass
+                with open(fpath, 'w') as f:
+                  f.write('Create a new text file!')
+  
+                
+                document.querySelector("#err").style.color = "black"
+                err.write("Submission successful!")
+            except Exception:
+                document.querySelector("#err").style.color = "red"
+                err.write("Error: unable to submit!")
         </py-script>
       </form>
     </div>
