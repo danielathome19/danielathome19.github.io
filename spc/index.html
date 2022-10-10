@@ -1,67 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simulated Programming Competition 2022</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  </head>
-  <body>
-    <button onclick="hideSubmit();">Hide Submission Form</button>
-    <div id="subform">
-      <h1>Submit Code</h1>
-      <form action="#" method="post" onsubmit="return false" id="subcode">
-        <!--<label for="teamid">Team ID: </label>
-        <input type="number" id="teamid" name="teamid"/>-->
-
-        <label for="output">Program output: </label>
-        <input type="text" id="output" name="output" />
-
-        <input type="submit" value="Submit" id="sbutton" pys-onClick="dosubmit" >
-        <p id="err"></p>
-
-        <py-script>
-          from js import document, console
-          import smtplib
-          import os.path
-
-          def dosubmit(*args,**kwargs):
-            try:
-                err = Element('err')
-                # teamid = Element('teamid').value
-                msg = Element('output').value
-                mArgs = msg.strip().split(";")
-                teamid = int(mArgs[0].strip())
-                fpath = f"/scores/scr{teamid}.txt"
-  
-                # Check if scoreboard file exists
-                if not os.path.exists(fpath):
-                  console.log(f"No scoreboard file found for team {teamid}, creating...")
-                else:  # Update only newly true results
-                  pass
-                with open(fpath, 'w') as f:
-                  f.write('Create a new text file!')
-  
-                
-                document.querySelector("#err").style.color = "black"
-                err.write("Submission successful!")
-            except Exception:
-                document.querySelector("#err").style.color = "red"
-                err.write("Error: unable to submit!")
-        </py-script>
-      </form>
-    </div>
-
-    <h1>Scoreboard:</h1>
-    <pre id="scrbd"></pre>
-  </body>
-  <script>
-    function hideSubmit() {
-      var x = document.getElementById("subform");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-  </script>
+<head>
+  <title>Daniel Szelogowski :: Home</title>
+  <meta http-equiv="Refresh" content="0; url='http://danielszelogowski.com/'" />
+</head>
+<body>
+  <a href="http://danielszelogowski.com/spc">Click here to be redicted manually</a>
+</body>
 </html>
