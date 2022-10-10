@@ -6,7 +6,7 @@
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   </head>
   <body>
-    <p>Hello!</p>
+    <button onclick="">Hide Submission Form</button>
     <h1>Submit Code</h1>
     <form id="subcode" method="POST">
       <label for="teamid">Team ID: </label>
@@ -21,4 +21,14 @@
     <h1>Scoreboard:</h1>
     <pre id="scrbd"></pre>
   </body>
+  <script>
+    function hideSubmit() {
+      var x = document.getElementById("subcode");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
 </html>
