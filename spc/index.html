@@ -9,19 +9,49 @@
     <button onclick="hideSubmit();">Hide Submission Form</button>
     <div id="subform">
       <h1>Submit Code</h1>
-      <form id="subcode" method="POST">
-        <label for="teamid">Team ID: </label>
-        <input type="number" id="teamid" name="teamid"/>
+      <form action="#" method="post" onsubmit="return false" id="subcode">
+        <!--<label for="teamid">Team ID: </label>
+        <input type="number" id="teamid" name="teamid"/>-->
 
-        <label for="outpt">Program output: </label>
-        <input type="text" id="outpt" name="outpt" />
+        <label for="output">Program output: </label>
+        <input type="text" id="output" name="output" />
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" pys-onClick="dosubmit" >
+        <p id="err"></p>
       </form>
     </div>
 
     <h1>Scoreboard:</h1>
     <pre id="scrbd"></pre>
+
+    <py-script>
+      from js import document
+      from js import console
+      import smtplib
+      import os.path
+
+      def dosubmit(*args,**kwargs):
+          try:
+              err = Element('err')
+              # teamid = Element('teamid').value
+              msg = Element('output').value
+              mArgs = msg.strip().split(";")
+              teamid = int(mArgs[0].strip())
+              fpath = f"/scores/scr{teamid}.txt"
+
+              # Check if scoreboard file exists
+              if not os.path.exists(fpath):
+                console.log(f"No scoreboard file found for team {teamid}, creating...")
+              with open(fpath, 'w') as f:
+                f.write('Create a new text file!')
+
+              
+              document.querySelector("#err").style.color = "black"
+              err.write("Submission successful!")
+          except Exception:
+              document.querySelector("#err").style.color = "red"
+              err.write("Error: unable to submit!")
+    </py-script>
   </body>
   <script>
     function hideSubmit() {
