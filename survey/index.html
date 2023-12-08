@@ -5,6 +5,7 @@
   </head>
   <body>
     <p id="out"></p>
+    <p>Survey completion code for <b>Prolific</b> users: <b>CK3TR7SD</b></p>
     <script>
       let randomNumber = Math.floor(Math.random() * 1e9).toString().padStart(9, '0');
       document.getElementById('out').innerHTML = (`Thank you for taking part in this survey!<br/>If you're curious, samples 1, 2, and 4 were AI-generated; only 3 and 5 were real (human) compositions. You can listen to them again below.<br/><br/>Here is your unique survey code (for Amazon MTurk users):<br/><b>AIT-${randomNumber}-CMG</b>`);      
