@@ -3,12 +3,36 @@
   <head>
     <title>AI Choral Music Generation Survey Code</title>
   </head>
+  <style>
+    .spoiler {
+      background-color: black;
+      color: transparent;
+      cursor: pointer;
+      /* padding: 5px; */
+      display: inline-block;
+      text-align: center;
+    }
+
+    .spoiler::before {
+      content: "*Spoiler*";
+      color: white;
+    }
+
+    .spoiler:hover, .spoiler:focus {
+      color: black;
+      background-color: white;
+      font-weight: bold;
+    }
+    .spoiler:hover::before, .spoiler:focus::before {
+      content: "";
+    }
+  </style>
   <body>
     <p id="out"></p>
     <p>Survey completion code for <b>Prolific</b> users: <b>CK3TR7SD</b></p>
     <script>
       let randomNumber = Math.floor(Math.random() * 1e9).toString().padStart(9, '0');
-      document.getElementById('out').innerHTML = (`Thank you for taking part in this survey!<br/>If you're curious, samples 1, 2, and 4 were AI-generated; only 3 and 5 were real (human) compositions. You can listen to them again and see the original survey below.<br/><br/>Here is your unique survey code (for Amazon MTurk users):<br/><b>AIT-${randomNumber}-CMG</b>`);      
+      document.getElementById('out').innerHTML = (`Thank you for taking part in this survey!<br/>If you're curious, samples <span class="spoiler">1, 2, and 4</span> were AI-generated; only samples <span class="spoiler">3 and 5</span> were real (human) compositions. You can listen to them again and see the original survey below.<br/><br/>Here is your unique survey code (for Amazon MTurk users):<br/><b>AIT-${randomNumber}-CMG</b>`);      
     </script>
     <hr/>
     <h3>Original Survey Post:</h3>
@@ -27,15 +51,15 @@
       <li>Human - Strongly believe</li>
     </ul>
     <hr/>
-    <h3>Question 1 (AI):</h3>
+    <h3>Question 1 samples <span class="spoiler">(AI)</span>:</h3>
     <audio controls src="question_1.mp3"></audio>
-    <h3>Question 2 (AI):</h3>
+    <h3>Question 2 samples <span class="spoiler">(AI)</span>:</h3>
     <audio controls src="question_2.mp3"></audio>
-    <h3>Question 3 (Human):</h3>
+    <h3>Question 3 samples <span class="spoiler">(Human)</span>:</h3>
     <audio controls src="question_3.mp3"></audio>
-    <h3>Question 4 (AI):</h3>
+    <h3>Question 4 samples <span class="spoiler">(AI)</span>:</h3>
     <audio controls src="question_4.mp3"></audio>
-    <h3>Question 5 (Human):</h3>
+    <h3>Question 5 samples <span class="spoiler">(Human)</span>:</h3>
     <audio controls src="question_5.mp3"></audio>
     <hr/>
     <p>The last question asked users to describe their current level of musicianship/musical ability:</p>
